@@ -5,6 +5,7 @@ import psycopg2 as pg2
 
 
 def Top_articles():
+
     # Q1 answer
     conn = pg2.connect(dbname='news')
     cur = conn.cursor()
@@ -26,6 +27,7 @@ print 'top 3 articles are :', Top_articles()
 
 
 def Top_authors():
+
     # Q2 answer
     conn = pg2.connect(dbname='news')
     cur = conn.cursor()
@@ -44,6 +46,7 @@ print 'top 3 authors are:', Top_authors()
 
 
 def daily_error():
+
     # Q3 answer
     conn = pg2.connect(dbname='news')
     cur = conn.cursor()
@@ -56,5 +59,3 @@ def daily_error():
     conn.close()
     return result
 print 'Days with more than 1 error are:', daily_error()
-
-

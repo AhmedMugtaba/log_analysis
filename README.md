@@ -53,3 +53,10 @@ Start the VM:<br />
  group by date
  order by requests_failures desc;
 ```
+```
+Create view daily_error as 
+select error.date, round( 100 * (cast(error.requests_failures as decimal)/cast(Requests.total_requests as decimal)),2) as daily_error
+from Requests join error
+on Requests.date = error.date
+order by daily_error desc;
+```

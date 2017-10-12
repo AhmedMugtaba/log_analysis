@@ -60,3 +60,9 @@ from Requests join error
 on Requests.date = error.date
 order by daily_error desc;
 ```
+
+## running the program 
+### After creating the view and from inside the vm run <br />
+``` python
+pgsql.py
+```

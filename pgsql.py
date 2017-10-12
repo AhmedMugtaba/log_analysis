@@ -38,4 +38,16 @@ def Top_authors ():
 print 'top 3 authors are:', Top_authors()
 
 # Q3 - On which days did more than 1% of requests lead to errors? 
+def daily_error (): 
+	conn = pg2.connect(dbname='news')
+	cur = conn.cursor()
+	cur.execute(""" 
+	 select date, daily_error 
+	 from daily_error 
+	 where daily_error > 1;
+		""")
+	result = cur.fetchall()
+	conn.close()
+	return result
+print 'Days with more than 1 error are:', daily_error()
 

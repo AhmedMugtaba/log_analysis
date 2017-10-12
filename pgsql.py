@@ -56,3 +56,5 @@ def daily_error():
     conn.close()
     return result
 print 'Days with more than 1 error are:', daily_error()
+
+

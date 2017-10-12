@@ -27,7 +27,7 @@ Start the VM:<br />
   * ```-f newsdata.sql ```— run the SQL statements in the file newsdata.sql
 ## create the following views 
 
-```
+```sql
    Create view top_authors as
    select author, count(*) as page_views
    from articles join log
@@ -38,14 +38,14 @@ Start the VM:<br />
    limit 3;
 ```
 
-```
+```sql
   Create view Requests as 
   select time ::timestamp::date as date, count(*) as total_requests
   from log
   group by date
   order by total_requests desc;
 ```
-```
+```sql
  Create view error as 
  select time ::timestamp::date as date, count(*) as requests_failures
  from log
@@ -53,7 +53,7 @@ Start the VM:<br />
  group by date
  order by requests_failures desc;
 ```
-```
+```sql
 Create view daily_error as 
 select error.date, round( 100 * (cast(error.requests_failures as decimal)/cast(Requests.total_requests as decimal)),2) as daily_error
 from Requests join error

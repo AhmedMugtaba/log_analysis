@@ -5,7 +5,6 @@ import psycopg2 as pg2
 
 
 def Top_articles():
-
     # Q1 answer
     conn = pg2.connect(dbname='news')
     cur = conn.cursor()
@@ -21,13 +20,14 @@ def Top_articles():
     result = cur.fetchall()
     conn.close()
     return result
+
+
 print 'top 3 articles are :', Top_articles()
 
 # Q2 - Who are the most popular article authors of all time?
 
 
 def Top_authors():
-
     # Q2 answer
     conn = pg2.connect(dbname='news')
     cur = conn.cursor()
@@ -40,6 +40,8 @@ def Top_authors():
     result = cur.fetchall()
     conn.close()
     return result
+
+
 print 'top 3 authors are:', Top_authors()
 
 # Q3 - On which days did more than 1% of requests lead to errors?
@@ -58,4 +60,6 @@ def daily_error():
     result = cur.fetchall()
     conn.close()
     return result
+
+
 print 'Days with more than 1 error are:', daily_error()
